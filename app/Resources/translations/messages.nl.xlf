@@ -84,10 +84,21 @@
                 <source>action.create_post</source>
                 <target>Nieuw bericht schrijven</target>
             </trans-unit>
+
             <trans-unit id="label.create_post">
                 <source>label.create_post</source>
                 <target>Bericht maken</target>
             </trans-unit>
+
+            <trans-unit id="action.create_openingHours">
+                            <source>action.create_openingHours</source>
+                            <target>Openingsuren aanpassen</target>
+                       </trans-unit>
+                       <trans-unit id="label.create_openingHours">
+                            <source>label.create_openingHours</source>
+                            <target>Openingsuren aanpassen</target>
+                       </trans-unit>
+
             <trans-unit id="action.back_to_list">
                 <source>action.back_to_list</source>
                 <target>Terug naar de berichten lijst</target>
@@ -212,6 +223,10 @@
                 <source>help.browse_app</source>
                 <target><![CDATA[Bekijk het <strong>publieke gedeelte</strong> van de demo applicatie.]]></target>
             </trans-unit>
+              <trans-unit id="help.browse_hours">
+                            <source>help.browse_hours</source>
+                            <target><![CDATA[<strong>Openingsuren</strong> ]]></target>
+                        </trans-unit>
             <trans-unit id="help.browse_admin">
                 <source>help.browse_admin</source>
                 <target><![CDATA[Bekijk het <strong>Beheerpaneel</strong> van de demo applicatie.]]></target>

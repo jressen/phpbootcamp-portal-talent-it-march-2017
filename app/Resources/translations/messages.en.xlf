@@ -302,6 +302,10 @@
                 <source>help.show_code</source>
                 <target><![CDATA[Click on this button to show the source code of the <strong>Controller</strong> and <strong>template</strong> used to render this page.]]></target>
             </trans-unit>
+            <trans-unit id="help.browse_hours">
+                <source>help.browse_hours</source>
+                <target><![CDATA[Opening hours:]]></target>
+            </trans-unit>
             <trans-unit id="help.browse_app">
                 <source>help.browse_app</source>
                 <target><![CDATA[Updates from <strong>city hall</strong>]]></target>

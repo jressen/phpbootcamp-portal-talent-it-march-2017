@@ -208,6 +208,10 @@
                 <source>help.show_code</source>
                 <target><![CDATA[Klik op deze knop om de broncode van de <strong>Controller</strong> en <strong>template</strong>, die gebruikt zijn bij het weergeven van deze pagina, te bekijken.]]></target>
             </trans-unit>
+            <trans-unit id="help.browse_hours">
+                <source>help.browse_hours</source>
+                <target><![CDATA[Openingsuren:]]></target>
+            </trans-unit>
             <trans-unit id="help.browse_app">
                 <source>help.browse_app</source>
                 <target><![CDATA[Bekijk het <strong>publieke gedeelte</strong> van de demo applicatie.]]></target>

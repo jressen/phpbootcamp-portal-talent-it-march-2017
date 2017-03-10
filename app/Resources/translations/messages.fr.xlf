@@ -199,7 +199,6 @@
                 <source>post.no_comments</source>
                 <target>Soyez le premier à commenter cet article.</target>
             </trans-unit>
-
             <trans-unit id="help.app_description">
                 <source>help.app_description</source>
                 <target><![CDATA[Ceci est une <strong>application de démonstration</strong> construite avec le framework Symfony pour illustrer la façon recommandée de développer des applications Symfony.]]></target>
@@ -208,6 +207,10 @@
                 <source>help.show_code</source>
                 <target><![CDATA[Cliquez sur ce bouton pour voir le code source du <strong>contrôleur</strong> et du <strong>template</strong> utilisé pour afficher cette page.]]></target>
             </trans-unit>
+            <trans-unit id="help.browse_hours">
+                            <source>help.browse_hours</source>
+                            <target><![CDATA[Heures d'ouverture:]]></target>
+                        </trans-unit>
             <trans-unit id="help.browse_app">
                 <source>help.browse_app</source>
                 <target><![CDATA[Parcourir la <strong>section publique</strong> de l'application de démonstration.]]></target>

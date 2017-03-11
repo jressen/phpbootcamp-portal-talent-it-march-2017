@@ -12,6 +12,7 @@
         {{ form_start(form) }}
         {{ form_errors(form) }}
           {{ form_widget(form) }}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
         <button type="submit" class="btn btn-primary">Register</button>
         {{ form_end(form) }}
       </fieldset>

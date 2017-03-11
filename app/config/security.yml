@@ -35,6 +35,8 @@ security:
                 # The page users are redirect to when there is no previous page stored in the
                 # session (for example when the users access directly to the login page).
                 default_target_path: blog_index
+                # Make sure that the user goes to the blog_index page after logging in
+                always_use_default_target_path: true
 
             logout:
                 # The route name the user can go to in order to logout

@@ -42,7 +42,7 @@ class RegistrationController extends Controller
 
 
       // message if the user was created succesfully
-      $this->addFlash('succes', 'User was created successfully.');
+      $this->addFlash('success', 'User was created successfully.');
 
       return $this->redirectToRoute('security_login');
     }

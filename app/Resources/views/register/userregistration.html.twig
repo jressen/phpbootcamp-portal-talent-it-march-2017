@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'register' %}
+
+{% block main %}
+
+<div class="row">
+  <div id="register-form" class="col-sm-12">
+    <div class="well">
+      <legend><i class="fa fa-user" aria-hidden="true"></i> Make a account</legend>
+      <form action="{{ path('register_userregistration') }}" method="post">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+          {{ form_widget(form) }}
+        <button type="submit" class="btn btn-primary">Register</button>
+        {{ form_end(form) }}
+      </fieldset>
+    </form>
+  </div>
+</div>
+</div>
+{% endblock %}
+
+{% block sidebar %}
+{{ parent() }}
+
+{{ show_source_code(_self) }}
+{% endblock %}

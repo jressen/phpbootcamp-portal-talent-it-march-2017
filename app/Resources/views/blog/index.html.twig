@@ -14,6 +14,8 @@
             <p class="post-metadata">
                 <span class="metadata"><i class="fa fa-calendar"></i> {{ post.publishedAt|localizeddate('long', 'medium', null, 'UTC') }}</span>
                 <span class="metadata"><i class="fa fa-user"></i> {{ post.author.email }}</span>
+                <span class="metadata"><a href=https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:8000/{{ app.request.locale |trans }}/blog/posts/{{ post.slug }}&title={{ post.slug }}&summary={{ post.summary }}"><i class="fa fa-linkedin-square"></i></a></span>
+                <span class="metadata"><a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost:8000%2F{{ app.request.locale |trans }}%2Fblog%2Fposts%2F{{ post.slug }}"><i class="fa fa-twitter" ></i></a></span>
             </p>
 
             {{ post.summary|md2html }}

@@ -10,8 +10,17 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-
-
+/**
+ * Class OpeningHours
+ * @package AppBundle\Entity
+ *
+ *
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\HoursRepository")
+ * @ORM\Table(name="openinghours")
+ *
+ *
+ *
+ */
 class OpeningHours{
 
 
@@ -19,7 +28,7 @@ class OpeningHours{
      * @var int
      *
      * @ORM\Id
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      * @ORM\Column(type="integer")
      */
     private $id;
@@ -29,23 +38,23 @@ class OpeningHours{
      * @var string
      *
      * @ORM\Column(type="string", unique=true)
-     * * @Assert\NotBlank(message="post.blank_content")
+     * @Assert\NotBlank
      */
     private $dayOfWeek;
 
 
     /**
-     * @var time
+     * @var string
      *
-     * @ORM\Column(type="Time")
+     * @ORM\Column(type="string")
      */
     private $openingTime;
 
 
     /**
-     * @var time
+     * @var string
      *
-     * @ORM\Column(type="Time")
+     * @ORM\Column(type="string")
      */
     private $closingTime;
 
@@ -82,37 +91,35 @@ class OpeningHours{
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getOpeningTime()
+    public function getOpeningTime(): string
     {
         return $this->openingTime;
     }
 
     /**
-     * @param mixed $openingTime
+     * @param string $openingTime
      */
-    public function setOpeningTime($openingTime)
+    public function setOpeningTime(string $openingTime)
     {
         $this->openingTime = $openingTime;
     }
 
     /**
-     * @return time
+     * @return string
      */
-    public function getClosingTime(): time
+    public function getClosingTime(): string
     {
         return $this->closingTime;
     }
 
     /**
-     * @param time $closingTime
+     * @param string $closingTime
      */
-    public function setClosingTime(time $closingTime)
+    public function setClosingTime(string $closingTime)
     {
         $this->closingTime = $closingTime;
     }
 
-
-
-}
+   }

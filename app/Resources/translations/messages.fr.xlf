@@ -89,6 +89,36 @@
                 <target>Créer un article</target>
             </trans-unit>
 
+            <trans-unit id="label.monday">
+                                                   <source>label.monday</source>
+                                                   <target>Lundi</target>
+                                               </trans-unit>
+                        <trans-unit id="label.tuesday">
+                                                   <source>label.tuesday</source>
+                                                   <target>Mardi</target>
+                                               </trans-unit>
+                        <trans-unit id="label.wednesday">
+                                                   <source>label.wednesday</source>
+                                                   <target>Mercredi</target>
+                                               </trans-unit>
+                        <trans-unit id="label.thursday">
+                                                   <source>label.thursday</source>
+                                                   <target>Jeudi</target>
+                                               </trans-unit>
+                        <trans-unit id="label.friday">
+                                                   <source>label.firday</source>
+                                                   <target>Vendredi</target>
+                                               </trans-unit>
+                        <trans-unit id="label.saturday">
+                                                   <source>label.saturday</source>
+                                                   <target>Samedi</target>
+                                               </trans-unit>
+                        <trans-unit id="label.sunday">
+                                                   <source>label.sunday</source>
+                                                   <target>Dimanche</target>
+                                               </trans-unit>
+
+
             <trans-unit id="action.create_openingHours">
                  <source>action.create_openingHours</source>
                  <target>Changer les heures d'ouverture</target>
@@ -163,12 +193,6 @@
                 <source>title.post_new</source>
                 <target>Ajouter un nouvel article</target>
             </trans-unit>
-
-            <trans-unit id="title.hours_new">
-                 <source>title.hours_new</source>
-                 <target>Changer les heures d'ouverture</target>
-            </trans-unit>
-
             <trans-unit id="action.edit_contents">
                 <source>action.edit_contents</source>
                 <target>Modifier le contenu</target>
@@ -215,6 +239,7 @@
                 <source>post.no_comments</source>
                 <target>Soyez le premier à commenter cet article.</target>
             </trans-unit>
+
             <trans-unit id="help.app_description">
                 <source>help.app_description</source>
                 <target><![CDATA[Ceci est une <strong>application de démonstration</strong> construite avec le framework Symfony pour illustrer la façon recommandée de développer des applications Symfony.]]></target>
@@ -223,12 +248,6 @@
                 <source>help.show_code</source>
                 <target><![CDATA[Cliquez sur ce bouton pour voir le code source du <strong>contrôleur</strong> et du <strong>template</strong> utilisé pour afficher cette page.]]></target>
             </trans-unit>
-
-            <trans-unit id="help.browse_hours">
-                <source>help.browse_hours</source>
-                <target><![CDATA[Heures d'ouverture:]]></target>
-            </trans-unit>
-
             <trans-unit id="help.browse_app">
                 <source>help.browse_app</source>
                 <target><![CDATA[Parcourir la <strong>section publique</strong> de l'application de démonstration.]]></target>

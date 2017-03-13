@@ -89,6 +89,36 @@
                 <target>Bericht maken</target>
             </trans-unit>
 
+            <trans-unit id="label.monday">
+                                       <source>label.monday</source>
+                                       <target>Maandag</target>
+                                   </trans-unit>
+            <trans-unit id="label.tuesday">
+                                       <source>label.tuesday</source>
+                                       <target>Dinsdag</target>
+                                   </trans-unit>
+            <trans-unit id="label.wednesday">
+                                       <source>label.wednesday</source>
+                                       <target>Woensdag</target>
+                                   </trans-unit>
+            <trans-unit id="label.thursday">
+                                       <source>label.thursday</source>
+                                       <target>Donderdag</target>
+                                   </trans-unit>
+            <trans-unit id="label.friday">
+                                       <source>label.firday</source>
+                                       <target>Vrijdag</target>
+                                   </trans-unit>
+            <trans-unit id="label.saturday">
+                                       <source>label.saturday</source>
+                                       <target>Zaterdag</target>
+                                   </trans-unit>
+            <trans-unit id="label.sunday">
+                                       <source>label.sunday</source>
+                                       <target>Zondag</target>
+                                   </trans-unit>
+
+
             <trans-unit id="action.create_openingHours">
                  <source>action.create_openingHours</source>
                  <target>Openingsuren aanpassen</target>
@@ -164,12 +194,6 @@
                 <source>title.post_new</source>
                 <target>Nieuw bericht</target>
             </trans-unit>
-
-            <trans-unit id="title.hours_new">
-                 <source>title.hours_new</source>
-                 <target>Aanpassing openingsuren</target>
-            </trans-unit>
-
             <trans-unit id="action.edit_contents">
                 <source>action.edit_contents</source>
                 <target>Inhoud bewerken</target>
@@ -225,12 +249,6 @@
                 <source>help.show_code</source>
                 <target><![CDATA[Klik op deze knop om de broncode van de <strong>Controller</strong> en <strong>template</strong>, die gebruikt zijn bij het weergeven van deze pagina, te bekijken.]]></target>
             </trans-unit>
-
-            <trans-unit id="help.browse_hours">
-                <source>help.browse_hours</source>
-                <target><![CDATA[Openingsuren:]]></target>
-            </trans-unit>
-
             <trans-unit id="help.browse_app">
                 <source>help.browse_app</source>
                 <target><![CDATA[Bekijk het <strong>publieke gedeelte</strong> van de demo applicatie.]]></target>

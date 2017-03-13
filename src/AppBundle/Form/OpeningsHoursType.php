@@ -14,11 +14,14 @@ namespace AppBundle\Form;
 use AppBundle\Entity\OpeningHours;
 use AppBundle\Form\Type\DateTimePickerType;
 use AppBundle\Form\Type\TagsInputType;
+use AppBundle\Repository\HoursRepository;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -31,11 +34,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class OpeningsHoursType extends AbstractType
 {
 
+    private $hRepo;
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $this->hRepo = new HoursRepository();
         // For the full reference of options defined by each form field type
         // see http://symfony.com/doc/current/reference/forms/types.html
 
@@ -56,7 +61,7 @@ class OpeningsHoursType extends AbstractType
                     new OpeningHours("Zaterdag"),
                     new OpeningHours("Zondag"),
                 ),
-                'choice_label' => function($openingHour, $key, $index){
+                'choice_label' => function($openingHour){
                     /** @var OpeningHours $openingHour */
                     return $openingHour->getDayOfWeek();
                 }
@@ -66,6 +71,8 @@ class OpeningsHoursType extends AbstractType
 
             ->add('closingTime');
 
+        $allResults = $this->hRepo->getAll();
+        print_r($allResults);
 
     }
 

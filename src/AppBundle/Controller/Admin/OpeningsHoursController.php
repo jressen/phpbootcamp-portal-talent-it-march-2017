@@ -40,8 +40,7 @@ class OpeningsHoursController extends Controller
      */
     public function newAction(Request $request)
     {
-        $newHours = new OpeningHours();
-        $newHours->setDayOfWeek("");
+        $newHours = new OpeningHours("");
         $newHours->setOpeningTime("");
         $newHours->setClosingTime("");
 

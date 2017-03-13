@@ -10,10 +10,22 @@ namespace AppBundle\Repository;
 
 
 use Doctrine\ORM\EntityRepository;
+use AppBundle\Entity\OpeningHours;
+use Doctrine\ORM\Query;
 
 class HoursRepository extends EntityRepository
 {
+    /**
+     * @return Query
+     */
 
+    public function getAll(){
 
+        return $this->getEntityManager()
+        ->createQuery('
+        SELECT h
+        FROM AppBundle:OpeningHours h');
+
+    }
 
 }

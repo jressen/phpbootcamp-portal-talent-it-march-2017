@@ -84,10 +84,10 @@ class OpeningsHoursController extends Controller
 
     private function validateData(OpeningHours $hours){
 
-        print_r("validate Data");
-
+        $regExp = "[0,2][0,9]:[0,5][0,9]";
         $result = false;
 
+        // check if day is one the real days
         switch ($hours->getDayOfWeek()) {
 
             case "Maandag":
@@ -113,15 +113,12 @@ class OpeningsHoursController extends Controller
                 break;
         }
 
-        /*
-        if (strlen($hours->getOpeningTime()) == 5){
+        // check if time is according to the regular expression
+        if ( strlen($hours->getOpeningTime()) == 5 && preg_match($regExp, $hours->getOpeningTime()) && preg_match($regExp, $hours->getClosingTime())) {
 
-            $hours->getOpeningTime([0,2][0,9]:[0,5][0,9]);
+             $result = true;
 
         }
-
-        */
-
 
 
         return $result;

@@ -88,6 +88,17 @@
                 <source>label.create_post</source>
                 <target>Bericht maken</target>
             </trans-unit>
+
+            <trans-unit id="action.create_openingHours">
+                 <source>action.create_openingHours</source>
+                 <target>Openingsuren aanpassen</target>
+            </trans-unit>
+            <trans-unit id="label.create_openingHours">
+                 <source>label.create_openingHours</source>
+                 <target>Openingsuren aanpassen</target>
+            </trans-unit>
+
+
             <trans-unit id="action.back_to_list">
                 <source>action.back_to_list</source>
                 <target>Terug naar de berichten lijst</target>
@@ -153,6 +164,12 @@
                 <source>title.post_new</source>
                 <target>Nieuw bericht</target>
             </trans-unit>
+
+            <trans-unit id="title.hours_new">
+                 <source>title.hours_new</source>
+                 <target>Aanpassing openingsuren</target>
+            </trans-unit>
+
             <trans-unit id="action.edit_contents">
                 <source>action.edit_contents</source>
                 <target>Inhoud bewerken</target>
@@ -208,10 +225,12 @@
                 <source>help.show_code</source>
                 <target><![CDATA[Klik op deze knop om de broncode van de <strong>Controller</strong> en <strong>template</strong>, die gebruikt zijn bij het weergeven van deze pagina, te bekijken.]]></target>
             </trans-unit>
+
             <trans-unit id="help.browse_hours">
                 <source>help.browse_hours</source>
                 <target><![CDATA[Openingsuren:]]></target>
             </trans-unit>
+
             <trans-unit id="help.browse_app">
                 <source>help.browse_app</source>
                 <target><![CDATA[Bekijk het <strong>publieke gedeelte</strong> van de demo applicatie.]]></target>

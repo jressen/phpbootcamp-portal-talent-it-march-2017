@@ -88,6 +88,16 @@
                 <source>label.create_post</source>
                 <target>Créer un article</target>
             </trans-unit>
+
+            <trans-unit id="action.create_openingHours">
+                 <source>action.create_openingHours</source>
+                 <target>Changer les heures d'ouverture</target>
+            </trans-unit>
+            <trans-unit id="label.create_openingHours">
+                 <source>label.create_openingHours</source>
+                 <target>Changer les heures d'ouverture</target>
+            </trans-unit>
+
             <trans-unit id="action.back_to_list">
                 <source>action.back_to_list</source>
                 <target>Retour à la liste des articles</target>
@@ -153,6 +163,12 @@
                 <source>title.post_new</source>
                 <target>Ajouter un nouvel article</target>
             </trans-unit>
+
+            <trans-unit id="title.hours_new">
+                 <source>title.hours_new</source>
+                 <target>Changer les heures d'ouverture</target>
+            </trans-unit>
+
             <trans-unit id="action.edit_contents">
                 <source>action.edit_contents</source>
                 <target>Modifier le contenu</target>
@@ -207,10 +223,12 @@
                 <source>help.show_code</source>
                 <target><![CDATA[Cliquez sur ce bouton pour voir le code source du <strong>contrôleur</strong> et du <strong>template</strong> utilisé pour afficher cette page.]]></target>
             </trans-unit>
+
             <trans-unit id="help.browse_hours">
-                            <source>help.browse_hours</source>
-                            <target><![CDATA[Heures d'ouverture:]]></target>
-                        </trans-unit>
+                <source>help.browse_hours</source>
+                <target><![CDATA[Heures d'ouverture:]]></target>
+            </trans-unit>
+
             <trans-unit id="help.browse_app">
                 <source>help.browse_app</source>
                 <target><![CDATA[Parcourir la <strong>section publique</strong> de l'application de démonstration.]]></target>

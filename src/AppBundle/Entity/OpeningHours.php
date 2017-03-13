@@ -60,6 +60,8 @@ class OpeningHours{
      */
     private $closingTime;
 
+
+
     /**
      * OpeningHours constructor.
      * @param string $dayOfWeek
@@ -67,6 +69,7 @@ class OpeningHours{
     public function __construct($dayOfWeek)
     {
         $this->dayOfWeek = $dayOfWeek;
+
     }
 
     /**
@@ -132,5 +135,6 @@ class OpeningHours{
     {
         $this->closingTime = $closingTime;
     }
+
 
    }

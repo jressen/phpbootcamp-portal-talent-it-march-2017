@@ -40,7 +40,6 @@ class OpeningsHoursType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $this->hRepo = new HoursRepository();
         // For the full reference of options defined by each form field type
         // see http://symfony.com/doc/current/reference/forms/types.html
 
@@ -53,26 +52,20 @@ class OpeningsHoursType extends AbstractType
         $builder
             ->add('dayOfWeek', ChoiceType::class, array(
                 'choices' => array(
-                    new OpeningHours("Maandag"),
-                    new OpeningHours("Dinsdag"),
-                    new OpeningHours("Woensdag"),
-                    new OpeningHours("Donderdag"),
-                    new OpeningHours("Vrijdag"),
-                    new OpeningHours("Zaterdag"),
-                    new OpeningHours("Zondag"),
+                    'label.monday' => "Mon",
+                    "label.tuesday" => "Tue",
+                    "label.wednesday" => "Wed",
+                    "label.thursday" => "Thu",
+                    "label.friday" => "Fri",
+                    "label.saturday" => "Sat",
+                    "label.sunday" => "Sun",
                 ),
-                'choice_label' => function($openingHour){
-                    /** @var OpeningHours $openingHour */
-                    return $openingHour->getDayOfWeek();
-                }
+
             ))
 
             ->add('openingTime')
 
             ->add('closingTime');
-
-        $allResults = $this->hRepo->getAll();
-        print_r($allResults);
 
     }
 

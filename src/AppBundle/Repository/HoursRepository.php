@@ -21,10 +21,7 @@ class HoursRepository extends EntityRepository
 
     public function getAll(){
 
-        return $this->getEntityManager()
-        ->createQuery('
-        SELECT h
-        FROM AppBundle:OpeningHours h');
+
 
     }
 

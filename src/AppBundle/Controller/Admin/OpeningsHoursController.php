@@ -8,8 +8,10 @@
 
 namespace AppBundle\Controller\Admin;
 
+use AppBundle\AppBundle;
 use AppBundle\Entity\OpeningHours;
 use AppBundle\Form\OpeningsHoursType;
+use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -50,26 +52,31 @@ class OpeningsHoursController extends Controller
 
         $form->handleRequest($request);
 
-        // the isSubmitted() method is completely optional because the other
-        // isValid() method already checks whether the form is submitted.
-        // However, we explicitly add it to improve code readability.
-        // See http://symfony.com/doc/current/best_practices/forms.html#handling-form-submits
+        /**
+         * Function to search in the database for a record and update that record with new data.
+         */
         if ($form->isSubmitted() && $form->isValid() && $this->validateData($newHours)) {
             try {
                 $entityManager = $this->getDoctrine()->getManager();
-                $entityManager->persist($newHours);
-                $entityManager->flush();
-            }
-            catch(Exception $exception){
+                $hourToUpdate = $entityManager->getRepository('AppBundle:OpeningHours')->findOneBy(['dayOfWeek' => $newHours->getDayOfWeek()]);
 
-                $this->addFlash('failed', 'Er is iets misgegaan bij het wegschrijven van de data');
+                $hourToUpdate->setOpeningTime($newHours->getOpeningTime());
+                $hourToUpdate->setClosingTime($newHours->getClosingTime());
+
+                $entityManager->merge($hourToUpdate);
+                $entityManager->flush();
+
+                $this->addFlash('success', 'post.created_successfully');
+            }
+            catch(UniqueConstraintViolationException $exception){
+
+                $this->addFlash('success', 'day.double');
 
             }
             // Flash messages are used to notify the user about the result of the
             // actions. They are deleted automatically from the session as soon
             // as they are accessed.
             // See http://symfony.com/doc/current/book/controller.html#flash-messages
-            $this->addFlash('success', 'post.created_successfully');
 
             return $this->redirectToRoute('admin_hours_new');
         }
@@ -83,31 +90,31 @@ class OpeningsHoursController extends Controller
 
     private function validateData(OpeningHours $hours){
 
-        $regExp = "[0,2][0,9]:[0,5][0,9]";
+        $regExp = "/^[0,-2][0-9]\:[0-5][0-9]$/";
         $result = false;
 
         // check if day is one the real days
         switch ($hours->getDayOfWeek()) {
 
-            case "Maandag":
+            case "Mon":
                 $result = true;
                 break;
-            case "Dinsdag":
+            case "Tue":
                 $result = true;
                 break;
-            case "Woensdag":
+            case "Wed":
                 $result = true;
                 break;
-            case "Donderdag":
+            case "Thu":
                 $result = true;
                 break;
-            case "Vrijdag":
+            case "Fri":
                 $result = true;
                 break;
-            case "Zaterdag":
+            case "Sat":
                 $result = true;
                 break;
-            case "Zondag":
+            case "Sun":
                 $result = true;
                 break;
         }

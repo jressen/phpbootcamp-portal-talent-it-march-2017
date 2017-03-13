@@ -56,14 +56,21 @@ class OpeningsHoursController extends Controller
          * Function to search in the database for a record and update that record with new data.
          */
         if ($form->isSubmitted() && $form->isValid() && $this->validateData($newHours)) {
+
             try {
                 $entityManager = $this->getDoctrine()->getManager();
                 $hourToUpdate = $entityManager->getRepository('AppBundle:OpeningHours')->findOneBy(['dayOfWeek' => $newHours->getDayOfWeek()]);
+                if (!$hourToUpdate == null) {
 
-                $hourToUpdate->setOpeningTime($newHours->getOpeningTime());
-                $hourToUpdate->setClosingTime($newHours->getClosingTime());
+                    $hourToUpdate->setOpeningTime($newHours->getOpeningTime());
+                    $hourToUpdate->setClosingTime($newHours->getClosingTime());
+                    $entityManager->merge($hourToUpdate);
 
-                $entityManager->merge($hourToUpdate);
+                }
+                else{
+
+                    $entityManager->persist($newHours);
+                }
                 $entityManager->flush();
 
                 $this->addFlash('success', 'post.created_successfully');
@@ -73,10 +80,6 @@ class OpeningsHoursController extends Controller
                 $this->addFlash('success', 'day.double');
 
             }
-            // Flash messages are used to notify the user about the result of the
-            // actions. They are deleted automatically from the session as soon
-            // as they are accessed.
-            // See http://symfony.com/doc/current/book/controller.html#flash-messages
 
             return $this->redirectToRoute('admin_hours_new');
         }
@@ -93,8 +96,27 @@ class OpeningsHoursController extends Controller
         $regExp = "/^[0,-2][0-9]\:[0-5][0-9]$/";
         $result = false;
 
-        // check if day is one the real days
-        switch ($hours->getDayOfWeek()) {
+        // check if time is according to the regular expression
+        if ( $this->checkInputDay($hours) && strlen($hours->getOpeningTime()) == 5 && strlen($hours->getClosingTime()) == 5 && preg_match($regExp, $hours->getOpeningTime()) && preg_match($regExp, $hours->getClosingTime())) {
+
+            $result = true;
+
+        }
+
+        if (!$result){
+            $this->addFlash('success', 'day.wrong_format');
+
+        }
+
+        return $result;
+    }
+
+
+    // check if value is one the values below
+    private function checkInputDay(OpeningHours $openingHours){
+
+        $result = false;
+        switch ($openingHours->getDayOfWeek()) {
 
             case "Mon":
                 $result = true;
@@ -119,16 +141,7 @@ class OpeningsHoursController extends Controller
                 break;
         }
 
-        // check if time is according to the regular expression
-        if ( strlen($hours->getOpeningTime()) == 5 && preg_match($regExp, $hours->getOpeningTime()) && preg_match($regExp, $hours->getClosingTime())) {
-
-             $result = true;
-
-        }
-
-
         return $result;
-
     }
 
 }

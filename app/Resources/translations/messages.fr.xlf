@@ -88,6 +88,46 @@
                 <source>label.create_post</source>
                 <target>Créer un article</target>
             </trans-unit>
+
+            <trans-unit id="label.monday">
+                                                   <source>label.monday</source>
+                                                   <target>Lundi</target>
+                                               </trans-unit>
+                        <trans-unit id="label.tuesday">
+                                                   <source>label.tuesday</source>
+                                                   <target>Mardi</target>
+                                               </trans-unit>
+                        <trans-unit id="label.wednesday">
+                                                   <source>label.wednesday</source>
+                                                   <target>Mercredi</target>
+                                               </trans-unit>
+                        <trans-unit id="label.thursday">
+                                                   <source>label.thursday</source>
+                                                   <target>Jeudi</target>
+                                               </trans-unit>
+                        <trans-unit id="label.friday">
+                                                   <source>label.firday</source>
+                                                   <target>Vendredi</target>
+                                               </trans-unit>
+                        <trans-unit id="label.saturday">
+                                                   <source>label.saturday</source>
+                                                   <target>Samedi</target>
+                                               </trans-unit>
+                        <trans-unit id="label.sunday">
+                                                   <source>label.sunday</source>
+                                                   <target>Dimanche</target>
+                                               </trans-unit>
+
+
+            <trans-unit id="action.create_openingHours">
+                 <source>action.create_openingHours</source>
+                 <target>Changer les heures d'ouverture</target>
+            </trans-unit>
+            <trans-unit id="label.create_openingHours">
+                 <source>label.create_openingHours</source>
+                 <target>Changer les heures d'ouverture</target>
+            </trans-unit>
+
             <trans-unit id="action.back_to_list">
                 <source>action.back_to_list</source>
                 <target>Retour à la liste des articles</target>

@@ -16,6 +16,7 @@ use AppBundle\Form\Type\DateTimePickerType;
 use AppBundle\Form\Type\TagsInputType;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -45,7 +46,21 @@ class OpeningsHoursType extends AbstractType
         // $builder->add('title', null, ['required' => false, ...]);
 
         $builder
-            ->add('dayOfWeek')
+            ->add('dayOfWeek', ChoiceType::class, array(
+                'choices' => array(
+                    new OpeningHours("Maandag"),
+                    new OpeningHours("Dinsdag"),
+                    new OpeningHours("Woensdag"),
+                    new OpeningHours("Donderdag"),
+                    new OpeningHours("Vrijdag"),
+                    new OpeningHours("Zaterdag"),
+                    new OpeningHours("Zondag"),
+                ),
+                'choice_label' => function($openingHour, $key, $index){
+                    /** @var OpeningHours $openingHour */
+                    return $openingHour->getDayOfWeek();
+                }
+            ))
 
             ->add('openingTime')
 
@@ -54,23 +69,6 @@ class OpeningsHoursType extends AbstractType
 
     }
 
-    private function fillComboBox(){
-
-        $er = $this->em->getRepository('AppBundle\Entity\OpeningHours');
-
-        $results = $er->createQueryBuilder('h');
-
-        $days = [];
-
-        foreach ($results as $day){
-            $days[] = array("dag" => $day->getDayOfWeek());
-        }
-
-        return $days;
-
-
-
-    }
 
     /**
      * {@inheritdoc}

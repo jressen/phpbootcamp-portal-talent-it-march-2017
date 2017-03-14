@@ -1,0 +1,13 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body %}
+    <br><br><br>
+    <a href="{{ path('task_list') }}" class="btn btn-sm btn-default">
+        {{ 'Back to Tasks' }}</a>
+    <h2 class=page-header>{{tasks.task}}</h2>
+    <ul class=list-group>
+        <li class=list-group-item>Due: {{tasks.duedate | date('F j, Y, g:i a')}}</li>
+        <br>
+        <li class=list-group-item>Description : {{tasks.description}}</li>
+    </ul>
+{% endblock %}

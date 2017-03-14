@@ -15,14 +15,5 @@ use Doctrine\ORM\Query;
 
 class HoursRepository extends EntityRepository
 {
-    /**
-     * @return Query
-     */
-
-    public function getAll(){
-
-
-
-    }
 
 }

@@ -11,6 +11,7 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Controller\Admin\OpeningsHoursController;
 use AppBundle\Entity\OpeningHours;
 use AppBundle\Form\Type\DateTimePickerType;
 use AppBundle\Form\Type\TagsInputType;
@@ -33,8 +34,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class OpeningsHoursType extends AbstractType
 {
-
-    private $hRepo;
     /**
      * {@inheritdoc}
      */
@@ -51,16 +50,7 @@ class OpeningsHoursType extends AbstractType
 
         $builder
             ->add('dayOfWeek', ChoiceType::class, array(
-                'choices' => array(
-                    'label.monday' => "Mon",
-                    "label.tuesday" => "Tue",
-                    "label.wednesday" => "Wed",
-                    "label.thursday" => "Thu",
-                    "label.friday" => "Fri",
-                    "label.saturday" => "Sat",
-                    "label.sunday" => "Sun",
-                ),
-
+                'choices' => OpeningsHoursController::$weekdays,
             ))
 
             ->add('openingTime')

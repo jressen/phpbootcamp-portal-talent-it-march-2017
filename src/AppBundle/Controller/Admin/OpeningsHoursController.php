@@ -30,6 +30,14 @@ use AppBundle\Repository\HoursRepository;
 class OpeningsHoursController extends Controller
 {
 
+    public static $weekdays = ['label.monday' => 'Mon',
+                        'label.tuesday' => 'Tue',
+                        'label.wednesday' => 'Wed',
+                        'label.thursday' => 'Thu',
+                        'label.friday' => 'fri',
+                        'label.saturday' => 'Sat',
+                        'label.sunday' => 'Sun'];
+
     /**
      * Creates a new openingsHours entity.
      *
@@ -40,16 +48,13 @@ class OpeningsHoursController extends Controller
      * to constraint the HTTP methods each controller responds to (by default
      * it responds to all methods).
      */
-    public function newAction(Request $request)
-    {
+    public function newAction(Request $request){
+
+        //Creation of new object
         $newHours = new OpeningHours("");
-        $newHours->setOpeningTime("");
-        $newHours->setClosingTime("");
 
-        // See http://symfony.com/doc/current/book/forms.html#submitting-forms-with-multiple-buttons
+        // creation of form
         $form = $this->createForm(OpeningsHoursType::class, $newHours);
-            //->add('saveAndCreateNew', SubmitType::class);
-
         $form->handleRequest($request);
 
         /**
@@ -59,7 +64,9 @@ class OpeningsHoursController extends Controller
 
             try {
                 $entityManager = $this->getDoctrine()->getManager();
+                // find object in database
                 $hourToUpdate = $entityManager->getRepository('AppBundle:OpeningHours')->findOneBy(['dayOfWeek' => $newHours->getDayOfWeek()]);
+                // if object exists -> update
                 if (!$hourToUpdate == null) {
 
                     $hourToUpdate->setOpeningTime($newHours->getOpeningTime());
@@ -67,6 +74,7 @@ class OpeningsHoursController extends Controller
                     $entityManager->merge($hourToUpdate);
 
                 }
+                // if objects doesn't exists insert
                 else{
 
                     $entityManager->persist($newHours);
@@ -93,7 +101,7 @@ class OpeningsHoursController extends Controller
 
     private function validateData(OpeningHours $hours){
 
-        $regExp = "/^[0,-2][0-9]\:[0-5][0-9]$/";
+        $regExp = "/^[0-2][0-9]\:[0-5][0-9]$/";
         $result = false;
 
         // check if time is according to the regular expression
@@ -116,32 +124,9 @@ class OpeningsHoursController extends Controller
     private function checkInputDay(OpeningHours $openingHours){
 
         $result = false;
-        switch ($openingHours->getDayOfWeek()) {
+        $currentday = $openingHours->getDayOfWeek();
+        return in_array($currentday, self::$weekdays);
 
-            case "Mon":
-                $result = true;
-                break;
-            case "Tue":
-                $result = true;
-                break;
-            case "Wed":
-                $result = true;
-                break;
-            case "Thu":
-                $result = true;
-                break;
-            case "Fri":
-                $result = true;
-                break;
-            case "Sat":
-                $result = true;
-                break;
-            case "Sun":
-                $result = true;
-                break;
-        }
-
-        return $result;
     }
 
 }

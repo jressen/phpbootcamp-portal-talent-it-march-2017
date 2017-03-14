@@ -15,5 +15,4 @@ use Doctrine\ORM\Query;
 
 class HoursRepository extends EntityRepository
 {
-
 }

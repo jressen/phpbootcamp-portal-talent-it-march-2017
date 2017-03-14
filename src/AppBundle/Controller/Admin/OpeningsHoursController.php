@@ -22,8 +22,8 @@ use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Repository\HoursRepository;
 
 /**
-*
-*@Security("has_role('ROLE_ADMIN')")
+ *
+ *@Security("has_role('ROLE_ADMIN')")
 */
 
 
@@ -126,6 +126,28 @@ class OpeningsHoursController extends Controller
         $result = false;
         $currentday = $openingHours->getDayOfWeek();
         return in_array($currentday, self::$weekdays);
+
+    }
+
+    /**
+     *
+     * @Route("/openingshours", name="show_opening_hours")
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     */
+    public function showOpeningHours() {
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $openingHoursRepository = $entityManager->getRepository(OpeningHours::class);
+        $openingHours = $openingHoursRepository->findAll();
+
+        if(!$openingHours) {
+            throw $this->createNotFoundException(
+                'No opening hours found'
+            );
+        }
+
+        return $this->render('default/openinghours.html.twig', ['openingHours' => $openingHours]);
 
     }
 }

@@ -141,50 +141,10 @@
                 <source>label.create_post</source>
                 <target>Create post</target>
             </trans-unit>
-
-            <trans-unit id="action.create_openingHours">
-                <source>action.create_openingHours</source>
-                <target>Change opening hours</target>
-            </trans-unit>
-            <trans-unit id="label.create_openingHours">
-                <source>label.create_openingHours</source>
-                <target>Change opening hours</target>
-            </trans-unit>
-
             <trans-unit id="label.save_and_create_new">
                 <source>label.save_and_create_new</source>
                 <target>Save and create new</target>
             </trans-unit>
-
-            <trans-unit id="label.monday">
-                                                   <source>label.monday</source>
-                                                   <target>Monday</target>
-                                               </trans-unit>
-                        <trans-unit id="label.tuesday">
-                                                   <source>label.tuesday</source>
-                                                   <target>Tuesday</target>
-                                               </trans-unit>
-                        <trans-unit id="label.wednesday">
-                                                   <source>label.wednesday</source>
-                                                   <target>Wednesday</target>
-                                               </trans-unit>
-                        <trans-unit id="label.thursday">
-                                                   <source>label.thursday</source>
-                                                   <target>Thursday</target>
-                                               </trans-unit>
-                        <trans-unit id="label.friday">
-                                                   <source>label.firday</source>
-                                                   <target>Friday</target>
-                                               </trans-unit>
-                        <trans-unit id="label.saturday">
-                                                   <source>label.saturday</source>
-                                                   <target>Saturday</target>
-                                               </trans-unit>
-                        <trans-unit id="label.sunday">
-                                                   <source>label.sunday</source>
-                                                   <target>Sunday</target>
-                                               </trans-unit>
-
             <trans-unit id="action.back_to_list">
                 <source>action.back_to_list</source>
                 <target>Back to the post list</target>
@@ -196,10 +156,6 @@
             <trans-unit id="action.sign_in">
                 <source>action.sign_in</source>
                 <target>Sign in</target>
-            </trans-unit>
-            <trans-unit id="action.register">
-                <source>action.register</source>
-                <target>Register</target>
             </trans-unit>
             <trans-unit id="action.browse_app">
                 <source>action.browse_app</source>
@@ -258,12 +214,6 @@
                 <source>title.post_new</source>
                 <target>Post creation</target>
             </trans-unit>
-
-            <trans-unit id="title.hours_new">
-                 <source>title.hours_new</source>
-                 <target>Change opening hours</target>
-            </trans-unit>
-
             <trans-unit id="action.edit_contents">
                 <source>action.edit_contents</source>
                 <target>Edit contents</target>
@@ -324,14 +274,12 @@
             </trans-unit>
             <trans-unit id="post.created_successfully">
                 <source>post.created_successfully</source>
-                <target>Post created successfully!</target>
+                <target>Date successfully saved!</target>
             </trans-unit>
-
             <trans-unit id="post.created_notSuccessfully">
-                <source>post.created_notSuccesfully</source>
-                <target>Changes not saved!</target>
-            </trans-unit>
-
+                           <source>post.created_notSuccesfully</source>
+                           <target>Changes not saved! Something went wrong. Please contact your adminstrator.</target>
+                       </trans-unit>
             <trans-unit id="post.updated_successfully">
                 <source>post.updated_successfully</source>
                 <target>Post updated successfully!</target>
@@ -358,17 +306,14 @@
                 <source>help.show_code</source>
                 <target><![CDATA[Click on this button to show the source code of the <strong>Controller</strong> and <strong>template</strong> used to render this page.]]></target>
             </trans-unit>
-
-            <trans-unit id="help.browse_hours">
-                <source>help.browse_hours</source>
-                <target><![CDATA[Opening hours:]]></target>
-            </trans-unit>
-
             <trans-unit id="help.browse_app">
                 <source>help.browse_app</source>
                 <target><![CDATA[Updates from <strong>city hall</strong>]]></target>
             </trans-unit>
-
+               <trans-unit id="help.browse_hours">
+                            <source>help.browse_hours</source>
+                            <target><![CDATA[Opening Hours</strong>]]></target>
+                        </trans-unit>
             <trans-unit id="help.browse_admin">
                 <source>help.browse_admin</source>
                 <target><![CDATA[Access to the <strong>e-portal</strong>]]></target>

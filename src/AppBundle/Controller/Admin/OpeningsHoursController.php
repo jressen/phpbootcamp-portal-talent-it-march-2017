@@ -8,8 +8,10 @@
 
 namespace AppBundle\Controller\Admin;
 
+use AppBundle\AppBundle;
 use AppBundle\Entity\OpeningHours;
 use AppBundle\Form\OpeningsHoursType;
+use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -28,6 +30,14 @@ use AppBundle\Repository\HoursRepository;
 class OpeningsHoursController extends Controller
 {
 
+    public static $weekdays = ['label.monday' => 'Mon',
+                        'label.tuesday' => 'Tue',
+                        'label.wednesday' => 'Wed',
+                        'label.thursday' => 'Thu',
+                        'label.friday' => 'fri',
+                        'label.saturday' => 'Sat',
+                        'label.sunday' => 'Sun'];
+
     /**
      * Creates a new openingsHours entity.
      *
@@ -38,39 +48,46 @@ class OpeningsHoursController extends Controller
      * to constraint the HTTP methods each controller responds to (by default
      * it responds to all methods).
      */
-    public function newAction(Request $request)
-    {
-        $newHours = new OpeningHours();
-        $newHours->setDayOfWeek("");
-        $newHours->setOpeningTime("");
-        $newHours->setClosingTime("");
+    public function newAction(Request $request){
 
-        // See http://symfony.com/doc/current/book/forms.html#submitting-forms-with-multiple-buttons
+        //Creation of new object
+        $newHours = new OpeningHours("");
+
+        // creation of form
         $form = $this->createForm(OpeningsHoursType::class, $newHours);
-            //->add('saveAndCreateNew', SubmitType::class);
-
         $form->handleRequest($request);
 
-        // the isSubmitted() method is completely optional because the other
-        // isValid() method already checks whether the form is submitted.
-        // However, we explicitly add it to improve code readability.
-        // See http://symfony.com/doc/current/best_practices/forms.html#handling-form-submits
+        /**
+         * Function to search in the database for a record and update that record with new data.
+         */
         if ($form->isSubmitted() && $form->isValid() && $this->validateData($newHours)) {
+
             try {
                 $entityManager = $this->getDoctrine()->getManager();
-                $entityManager->persist($newHours);
+                // find object in database
+                $hourToUpdate = $entityManager->getRepository('AppBundle:OpeningHours')->findOneBy(['dayOfWeek' => $newHours->getDayOfWeek()]);
+                // if object exists -> update
+                if (!$hourToUpdate == null) {
+
+                    $hourToUpdate->setOpeningTime($newHours->getOpeningTime());
+                    $hourToUpdate->setClosingTime($newHours->getClosingTime());
+                    $entityManager->merge($hourToUpdate);
+
+                }
+                // if objects doesn't exists insert
+                else{
+
+                    $entityManager->persist($newHours);
+                }
                 $entityManager->flush();
-            }
-            catch(Exception $exception){
 
-                $this->addFlash('failed', 'Er is iets misgegaan bij het wegschrijven van de data');
+                $this->addFlash('success', 'post.created_successfully');
+            }
+            catch(UniqueConstraintViolationException $exception){
+
+                $this->addFlash('warning', 'day.double');
 
             }
-            // Flash messages are used to notify the user about the result of the
-            // actions. They are deleted automatically from the session as soon
-            // as they are accessed.
-            // See http://symfony.com/doc/current/book/controller.html#flash-messages
-            $this->addFlash('success', 'post.created_successfully');
 
             return $this->redirectToRoute('admin_hours_new');
         }
@@ -84,44 +101,31 @@ class OpeningsHoursController extends Controller
 
     private function validateData(OpeningHours $hours){
 
-        $regExp = "[0,2][0,9]:[0,5][0,9]";
+        $regExp = "/^[0-2][0-9]\:[0-5][0-9]$/";
         $result = false;
 
-        // check if day is one the real days
-        switch ($hours->getDayOfWeek()) {
-
-            case "Maandag":
-                $result = true;
-                break;
-            case "Dinsdag":
-                $result = true;
-                break;
-            case "Woensdag":
-                $result = true;
-                break;
-            case "Donderdag":
-                $result = true;
-                break;
-            case "Vrijdag":
-                $result = true;
-                break;
-            case "Zaterdag":
-                $result = true;
-                break;
-            case "Zondag":
-                $result = true;
-                break;
-        }
-
         // check if time is according to the regular expression
-        if ( strlen($hours->getOpeningTime()) == 5 && preg_match($regExp, $hours->getOpeningTime()) && preg_match($regExp, $hours->getClosingTime())) {
+        if ( $this->checkInputDay($hours) && strlen($hours->getOpeningTime()) == 5 && strlen($hours->getClosingTime()) == 5 && preg_match($regExp, $hours->getOpeningTime()) && preg_match($regExp, $hours->getClosingTime())) {
 
-             $result = true;
+            $result = true;
 
         }
 
+        if (!$result){
+            $this->addFlash('warning', 'day.wrong_format');
+
+        }
 
         return $result;
+    }
+
+
+    // check if value is one the values below
+    private function checkInputDay(OpeningHours $openingHours){
+
+        $result = false;
+        $currentday = $openingHours->getDayOfWeek();
+        return in_array($currentday, self::$weekdays);
 
     }
 }

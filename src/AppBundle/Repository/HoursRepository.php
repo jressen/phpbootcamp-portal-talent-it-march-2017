@@ -10,20 +10,10 @@ namespace AppBundle\Repository;
 
 
 use Doctrine\ORM\EntityRepository;
+use AppBundle\Entity\OpeningHours;
+use Doctrine\ORM\Query;
 
 class HoursRepository extends EntityRepository
 {
-    public function showOpeningHours() {
-
-        $dql =
-
-        $entityManager = $this->getDoctrine()->getManager();
-        $openingHoursRepository = $entityManager->getRepository('openingHours');
-        $openingHours = $openingHoursRepository->findAll();
-
-        foreach ($openingHours as $openingHour) {
-            echo sprintf("%s\n", $openingHour->getOpeningHours());
-        }
-    }
 
 }

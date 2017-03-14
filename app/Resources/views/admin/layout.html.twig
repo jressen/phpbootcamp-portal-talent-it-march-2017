@@ -8,9 +8,14 @@
 {% extends 'base.html.twig' %}
 
 {% block header_navigation_links %}
-    <li>
+    <li xmlns="http://www.w3.org/1999/html">
         <a href="{{ path('admin_post_index') }}">
             <i class="fa fa-list-alt" aria-hidden="true"></i> {{ 'menu.post_list'|trans }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('task_list') }}">
+            <i class="fa fa-list-alt" aria-hidden="true"></i> {{ 'Tasklist' }}
         </a>
     </li>
     <li>

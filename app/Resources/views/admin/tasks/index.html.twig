@@ -1,0 +1,38 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body %}
+    <h1>{{ 'Tasklist'|trans }}</h1>
+
+    <table class=table table-bordered>
+        <thead>
+            <a href="{{ path('task_create') }}" class="btn btn-lg btn-block btn-success">
+                <i class="fa fa-plus" aria-hidden="true"></i> {{ 'Create Task'|trans }}
+            </a>
+        <tr>
+            <th>#</th>
+            <th scope="col">{{ 'label.title'|trans }}</th>
+            <th scope="col"><i class="fa fa-calendar" aria-hidden="true"></i> {{ 'Due date' }}</th>
+            <th scope="col"><i class="fa fa-cogs" aria-hidden="true"></i> {{ 'Actions' }}</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for task in tasks %}
+            <tr>
+                <td scope=row>{{task.id}}</td>
+                <td>{{task.task}}</td>
+                <td>{{task.duedate | date('F j, Y, g:i a')}}</td>
+                <td>
+                    <a href="{{ path('task_details', { id: task.id }) }}" class="btn btn-sm btn-default">
+                        {{ 'View' }}</a>
+                    <a href="{{ path('task_edit', {id: task.id}) }}" class="btn btn-sm btn-default"><i class="fa fa-edit" aria-hidden="true"></i>
+                        {{ 'Edit' }}</a>
+                    </a>
+                    <a href="{{ path('task_delete', {id: task.id}) }}" class="btn btn-sm btn-default">
+                        {{ 'Delete' }}</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

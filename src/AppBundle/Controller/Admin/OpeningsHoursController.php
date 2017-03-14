@@ -20,8 +20,8 @@ use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Repository\HoursRepository;
 
 /**
-*
-*@Security("has_role('ROLE_ADMIN')")
+ *
+ *@Security("has_role('ROLE_ADMIN')")
 */
 
 
@@ -40,10 +40,7 @@ class OpeningsHoursController extends Controller
      */
     public function newAction(Request $request)
     {
-        $newHours = new OpeningHours();
-        $newHours->setDayOfWeek("");
-        $newHours->setOpeningTime("");
-        $newHours->setClosingTime("");
+        $newHours = new OpeningHours("");
 
         // See http://symfony.com/doc/current/book/forms.html#submitting-forms-with-multiple-buttons
         $form = $this->createForm(OpeningsHoursType::class, $newHours);
@@ -122,6 +119,28 @@ class OpeningsHoursController extends Controller
 
 
         return $result;
+
+    }
+
+    /**
+     *
+     * @Route("/openingshours", name="show_opening_hours")
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     */
+    public function showOpeningHours() {
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $openingHoursRepository = $entityManager->getRepository(OpeningHours::class);
+        $openingHours = $openingHoursRepository->findAll();
+
+        if(!$openingHours) {
+            throw $this->createNotFoundException(
+                'No opening hours found'
+            );
+        }
+
+        return $this->render('default/openinghours.html.twig', ['openingHours' => $openingHours]);
 
     }
 }

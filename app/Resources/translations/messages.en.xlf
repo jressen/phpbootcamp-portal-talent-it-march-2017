@@ -361,7 +361,7 @@
 
             <trans-unit id="help.browse_hours">
                 <source>help.browse_hours</source>
-                <target><![CDATA[Opening hours:]]></target>
+                <target><![CDATA[Opening hours]]></target>
             </trans-unit>
 
             <trans-unit id="help.browse_app">
@@ -396,6 +396,27 @@
             <trans-unit id="help.more_information">
                 <source>help.more_information</source>
                 <target><![CDATA[Please contact <a href="https://www.in2it.be/contact/" title="in2it" target="_blank">in2it</a> for support and assistance.]]></target>
+            </trans-unit>
+
+            <trans-unit id="help.title_day_of_week">
+                <source>help.title_day_of_week</source>
+                <target>Day of the week</target>
+            </trans-unit>
+            <trans-unit id="help.title_opening_time">
+                <source>help.title_opening_time</source>
+                <target>Opening time</target>
+            </trans-unit>
+            <trans-unit id="help.title_closing_time">
+                <source>help.title_closing_time</source>
+                <target>Closing time</target>
+            </trans-unit>
+            <trans-unit id="help.label_closed">
+                <source>help.label_closed</source>
+                <target>Closed</target>
+            </trans-unit>
+            <trans-unit id="help.link_text_home">
+                <source>help.link_text_home</source>
+                <target>Home</target>
             </trans-unit>
 
             <trans-unit id="rss.title">

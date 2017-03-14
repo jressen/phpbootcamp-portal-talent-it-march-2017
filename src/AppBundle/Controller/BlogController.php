@@ -36,9 +36,10 @@ use Symfony\Component\HttpFoundation\Response;
 class BlogController extends Controller
 {
     /**
-     * @Route("/", defaults={"page": "1", "_format"="html"}, name="blog_index")
-     * @Route("/rss.xml", defaults={"page": "1", "_format"="xml"}, name="blog_rss")
-     * @Route("/page/{page}", defaults={"_format"="html"}, requirements={"page": "[1-9]\d*"}, name="blog_index_paginated")
+     * @Route("/", defaults={"page": "1","tag": "","_format"="html"}, name="blog_index")
+     * @Route("/rss.xml", defaults={"page": "1","tag": "", "_format"="xml"}, name="blog_rss")
+     * @Route("/page/{page}", defaults={"tag": "", "_format"="html"}, requirements={"page": "[1-9]\d*"}, name="blog_index_paginated")
+     * @Route("/tag/{tag}",defaults={"page": 1, "_format"="html"}, requirements={"tag": "[a-zA-Z][a-zA-Z0-9]+"}, name="blog_index_tagged")
      * @Method("GET")
      * @Cache(smaxage="10")
      *
@@ -46,15 +47,23 @@ class BlogController extends Controller
      * Content-Type header for the response.
      * See http://symfony.com/doc/current/quick_tour/the_controller.html#using-formats
      */
-    public function indexAction($page, $_format)
+    public function indexAction($page, $tag, $_format)
     {
-        $posts = $this->getDoctrine()->getRepository(Post::class)->findLatest($page);
+        $url = $_SERVER['REQUEST_URI'];
+        if (preg_match('/tag/',$url)){
+            $posts = $this->getDoctrine()->getRepository(Post::class)->findTag($tag);  
+
+        }else{
+            $posts = $this->getDoctrine()->getRepository(Post::class)->findLatest($page);
+            
+        }
 
         // Every template name also has two extensions that specify the format and
         // engine for that template.
         // See https://symfony.com/doc/current/templating.html#template-suffix
         return $this->render('blog/index.'.$_format.'.twig', ['posts' => $posts]);
     }
+    
 
     /**
      * @Route("/posts/{slug}", name="blog_post")

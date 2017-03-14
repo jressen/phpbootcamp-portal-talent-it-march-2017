@@ -256,6 +256,10 @@
                 <source>help.browse_admin</source>
                 <target><![CDATA[Parcourir l'<strong>interface d'administration</strong> de l'application de démonstration.]]></target>
             </trans-unit>
+            <trans-unit id="help.browse_hours">
+                <source>help.browse_hours</source>
+                <target><![CDATA[Heures d'ouvertures:]]></target>
+            </trans-unit>
             <trans-unit id="help.login_users">
                 <source>help.login_users</source>
                 <target>Essayez l'un des utilisateurs suivants</target>

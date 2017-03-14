@@ -80,52 +80,45 @@
                 <source>action.delete_post</source>
                 <target>Bericht verwijderen</target>
             </trans-unit>
-            <trans-unit id="action.create_post">
-                <source>action.create_post</source>
-                <target>Nieuw bericht schrijven</target>
-            </trans-unit>
-            <trans-unit id="label.create_post">
-                <source>label.create_post</source>
-                <target>Bericht maken</target>
-            </trans-unit>
+
 
             <trans-unit id="label.monday">
-                                       <source>label.monday</source>
-                                       <target>Maandag</target>
-                                   </trans-unit>
+                <source>label.monday</source>
+                <target>Maandag</target>
+            </trans-unit>
             <trans-unit id="label.tuesday">
-                                       <source>label.tuesday</source>
-                                       <target>Dinsdag</target>
-                                   </trans-unit>
+                <source>label.tuesday</source>
+                <target>Dinsdag</target>
+            </trans-unit>
             <trans-unit id="label.wednesday">
-                                       <source>label.wednesday</source>
-                                       <target>Woensdag</target>
-                                   </trans-unit>
+                <source>label.wednesday</source>
+                <target>Woensdag</target>
+            </trans-unit>
             <trans-unit id="label.thursday">
-                                       <source>label.thursday</source>
-                                       <target>Donderdag</target>
-                                   </trans-unit>
+                <source>label.thursday</source>
+                <target>Donderdag</target>
+            </trans-unit>
             <trans-unit id="label.friday">
-                                       <source>label.firday</source>
-                                       <target>Vrijdag</target>
-                                   </trans-unit>
+                <source>label.firday</source>
+                <target>Vrijdag</target>
+            </trans-unit>
             <trans-unit id="label.saturday">
-                                       <source>label.saturday</source>
-                                       <target>Zaterdag</target>
-                                   </trans-unit>
+                <source>label.saturday</source>
+                <target>Zaterdag</target>
+            </trans-unit>
             <trans-unit id="label.sunday">
-                                       <source>label.sunday</source>
-                                       <target>Zondag</target>
-                                   </trans-unit>
+                <source>label.sunday</source>
+                <target>Zondag</target>
+            </trans-unit>
 
 
             <trans-unit id="action.create_openingHours">
-                 <source>action.create_openingHours</source>
-                 <target>Openingsuren aanpassen</target>
+                <source>action.create_openingHours</source>
+                <target>Openingsuren aanpassen</target>
             </trans-unit>
             <trans-unit id="label.create_openingHours">
-                 <source>label.create_openingHours</source>
-                 <target>Openingsuren aanpassen</target>
+                <source>label.create_openingHours</source>
+                <target>Openingsuren aanpassen</target>
             </trans-unit>
 
 
@@ -256,6 +249,10 @@
             <trans-unit id="help.browse_admin">
                 <source>help.browse_admin</source>
                 <target><![CDATA[Bekijk het <strong>Beheerpaneel</strong> van de demo applicatie.]]></target>
+            </trans-unit>
+            <trans-unit id="help.browse_hours">
+                <source>help.browse_hours</source>
+                <target><![CDATA[Openingstijden:]]></target>
             </trans-unit>
             <trans-unit id="help.login_users">
                 <source>help.login_users</source>

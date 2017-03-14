@@ -26,11 +26,12 @@
 
     <div class="modal-header">
         <div class="modal-header">
-            <h1>{{ 'help.browse_hours'|trans|raw }}</h1>
-            <p>
-
-
-            </p>
+            <a href="{{ path('show_opening_hours') }}">
+                <h1>{{ 'help.browse_hours'|trans|raw }}</h1>
+            </a>
+            {% if openingHours %}
+                {{ include('default/openinghours.html.twig') }}
+            {% endif %}
         </div>
     </div>
 

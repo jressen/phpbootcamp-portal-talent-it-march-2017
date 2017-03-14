@@ -310,6 +310,28 @@
                 <source>help.more_information</source>
                 <target><![CDATA[Voor meer informatie bekijk de <a href="http://symfony.com/doc">Symfony documentatie</a>.]]></target>
             </trans-unit>
+
+            <trans-unit id="help.title_day_of_week">
+                <source>help.title_day_of_week</source>
+                <target>Dag van de week</target>
+            </trans-unit>
+            <trans-unit id="help.title_opening_time">
+                <source>help.title_opening_time</source>
+                <target>Openingstijd</target>
+            </trans-unit>
+            <trans-unit id="help.title_closing_time">
+                <source>help.title_closing_time</source>
+                <target>Sluitingstijd</target>
+            </trans-unit>
+            <trans-unit id="help.label_closed">
+                <source>help.label_closed</source>
+                <target>Gesloten</target>
+            </trans-unit>
+            <trans-unit id="help.link_text_home">
+                <source>help.link_text_home</source>
+                <target>Home</target>
+            </trans-unit>
+
             <trans-unit id="delete_post_modal.title">
                 <source>delete_post_modal.title</source>
                 <target>Weet u zeker dat u dit bericht wilt verwijderen?</target>

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'openinghours' %}
+
+{#
+    the homepage is a special page which displays neither a header nor a footer.
+    this is done with the 'trick' of defining empty Twig blocks without any content
+#}
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block body %}
+<div class="page-header text-center">
+    <h1>{{ 'title.homepage'|trans|raw }}</h1>
+</div>
+
+
+<div class="col-md-3">&nbsp;</div>
+<div class="col-md-6">
+    <h1>{{ 'help.browse_hours'|trans|raw }}</h1>
+    <table class="table">
+        <tr>
+            <th>{{ 'help.title_day_of_week'|trans|raw }}</th>
+            <th>{{ 'help.title_opening_time'|trans|raw }}</th>
+            <th>{{ 'help.title_closing_time'|trans|raw }}</th>
+        </tr>
+        {% for openingHour in openingHours %}
+            <tr>
+                <td>{{ openingHour.dayOfWeek }}</td>
+                {% if '00:00' == openingHour.openingtime %}
+                    <td colspan="2">{{ 'help.label_closed' | trans | raw }}</td>
+                {% else %}
+                    <td>{{ openingHour.openingtime }}</td>
+                    <td>{{ openingHour.closingTime }}</td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+<div class="col-md-3">&nbsp;</div>
+
+<div class="text-center row">
+    <a href="/">{{ 'help.link_text_home'|trans|raw }}</a>
+</div>
+
+{% endblock %}

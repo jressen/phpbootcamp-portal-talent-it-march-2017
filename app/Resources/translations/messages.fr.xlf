@@ -258,7 +258,7 @@
             </trans-unit>
             <trans-unit id="help.browse_hours">
                 <source>help.browse_hours</source>
-                <target><![CDATA[Heures d'ouvertures:]]></target>
+                <target><![CDATA[Heures d'ouvertures]]></target>
             </trans-unit>
             <trans-unit id="help.login_users">
                 <source>help.login_users</source>
@@ -284,6 +284,28 @@
                 <source>help.more_information</source>
                 <target><![CDATA[Pour plus d'informations, consultez la <a href="http://symfony.com/doc">documentation de Symfony</a>.]]></target>
             </trans-unit>
+
+            <trans-unit id="help.title_day_of_week">
+                <source>help.title_day_of_week</source>
+                <target>Jour de la semaine</target>
+            </trans-unit>
+            <trans-unit id="help.title_opening_time">
+                <source>help.title_opening_time</source>
+                <target>Ouverture</target>
+            </trans-unit>
+            <trans-unit id="help.title_closing_time">
+                <source>help.title_closing_time</source>
+                <target>Fermeture</target>
+            </trans-unit>
+            <trans-unit id="help.label_closed">
+                <source>help.label_closed</source>
+                <target>Fermé</target>
+            </trans-unit>
+            <trans-unit id="help.link_text_home">
+                <source>help.link_text_home</source>
+                <target>Home</target>
+            </trans-unit>
+
         </body>
     </file>
 </xliff>

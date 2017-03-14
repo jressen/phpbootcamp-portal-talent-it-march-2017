@@ -274,8 +274,12 @@
             </trans-unit>
             <trans-unit id="post.created_successfully">
                 <source>post.created_successfully</source>
-                <target>Post created successfully!</target>
+                <target>Date successfully saved!</target>
             </trans-unit>
+            <trans-unit id="post.created_notSuccessfully">
+                           <source>post.created_notSuccesfully</source>
+                           <target>Changes not saved! Something went wrong. Please contact your adminstrator.</target>
+                       </trans-unit>
             <trans-unit id="post.updated_successfully">
                 <source>post.updated_successfully</source>
                 <target>Post updated successfully!</target>

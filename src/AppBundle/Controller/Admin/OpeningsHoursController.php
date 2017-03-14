@@ -77,7 +77,7 @@ class OpeningsHoursController extends Controller
             }
             catch(UniqueConstraintViolationException $exception){
 
-                $this->addFlash('success', 'day.double');
+                $this->addFlash('warning', 'day.double');
 
             }
 
@@ -104,7 +104,7 @@ class OpeningsHoursController extends Controller
         }
 
         if (!$result){
-            $this->addFlash('success', 'day.wrong_format');
+            $this->addFlash('warning', 'day.wrong_format');
 
         }
 

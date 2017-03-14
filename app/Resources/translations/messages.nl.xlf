@@ -90,13 +90,58 @@
                 <target>Bericht maken</target>
             </trans-unit>
 
+                        <trans-unit id="day.double">
+                            <source>day.double</source>
+                            <target>Er kunnen geen dubbele dagen in de database zitten</target>
+                        </trans-unit>
+
+              <trans-unit id="day.wrong_format">
+                                        <source>day.wrong_format</source>
+                                        <target>Verkeerd tijdsformaat. Gelieve HH:MM te gebruiken</target>
+                                    </trans-unit>
+
+            <trans-unit id="label.monday">
+                            <source>label.monday</source>
+                            <target>Maandag</target>
+                        </trans-unit>
+
+             <trans-unit id="label.tuesday">
+                            <source>label.tuesday</source>
+                            <target>Dinsdag</target>
+                        </trans-unit>
+
+              <trans-unit id="label.wednesday">
+                              <source>label.wednesday</source>
+                              <target>Woensdag</target>
+                               </trans-unit>
+
+               <trans-unit id="label.thursday">
+                               <source>label.thursday</source>
+                                <target>Donderdag</target>
+                                </trans-unit>
+
+             <trans-unit id="label.friday">
+                                         <source>label.friday</source>
+                                         <target>Vrijdag</target>
+                                     </trans-unit>
+
+            <trans-unit id="label.saturday">
+                                        <source>label.saturday</source>
+                                        <target>Zaterdag</target>
+                                    </trans-unit>
+
+            <trans-unit id="label.sunday">
+                                        <source>label.sunday</source>
+                                        <target>Zondag</target>
+                                    </trans-unit>
+
             <trans-unit id="action.create_openingHours">
                             <source>action.create_openingHours</source>
                             <target>Openingsuren aanpassen</target>
                        </trans-unit>
                        <trans-unit id="label.create_openingHours">
                             <source>label.create_openingHours</source>
-                            <target>Openingsuren aanpassen</target>
+                            <target>Opslaan</target>
                        </trans-unit>
 
             <trans-unit id="action.back_to_list">
@@ -168,6 +213,11 @@
                 <source>action.edit_contents</source>
                 <target>Inhoud bewerken</target>
             </trans-unit>
+            <trans-unit id="title.hours_new">
+                            <source>title.hours_new</source>
+                            <target>Aanpassing openingsuren</target>
+                       </trans-unit>
+
 
             <trans-unit id="menu.toggle_nav">
                 <source>menu.toggle_nav</source>
@@ -202,6 +252,11 @@
                 <source>post.num_comments</source>
                 <target>%count% reactie|%count% reacties</target>
             </trans-unit>
+                        <trans-unit id="post.created_successfully">
+                            <source>post.created_successfully</source>
+                            <target>Data succesvol opgeslagen! Proficiat</target>
+                        </trans-unit>
+
             <trans-unit id="post.commented_on">
                 <source>post.commented_on</source>
                 <target>gereageerd op</target>

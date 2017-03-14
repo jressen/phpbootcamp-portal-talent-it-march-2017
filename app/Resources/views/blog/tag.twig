@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block body_id 'blog_index' %}
+{% block body_id 'blog_tagged' %}
     {% block main %}        
             {% for post in posts  %}
                 
@@ -12,8 +12,6 @@
                             <p class="post-metadata">
                                 <span class="metadata"><i class="fa fa-calendar"></i> {{ post.publishedAt|localizeddate('long', 'medium', null, 'UTC') }}</span>
                                 <span class="metadata"><i class="fa fa-user"></i> {{ post.author.email }}</span>
-                                <span class="metadata"><a href=https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:8000/{{ app.request.locale |trans }}/blog/posts/{{ post.slug }}&title={{ post.slug }}&summary={{ post.summary }}"><i class="fa fa-linkedin-square"></i></a></span>
-                                <span class="metadata"><a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost:8000%2F{{ app.request.locale |trans }}%2Fblog%2Fposts%2F{{ post.slug }}"><i class="fa fa-twitter" ></i></a></span>
                             </p>
                             {{ post.summary|md2html }}
                             {{ include('blog/_post_tags.html.twig') }}
@@ -22,9 +20,9 @@
                 
             
         {% endblock %}
+
         {% block sidebar %}
             {{ parent() }}
             {{ show_source_code(_self) }}
             {{ include('blog/_rss.html.twig') }}
         {% endblock %} 
-

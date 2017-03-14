@@ -17,6 +17,14 @@ use Doctrine\ORM\Mapping as ORM;
 class Tag implements \JsonSerializable
 {
     /**
+     * @var Post[]|ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Post", cascade={"persist"})
+     * @ORM\JoinTable(name="symfony_demo_post")
+     * @ORM\OrderBy({"name": "ASC"})
+     */
+    private $posts;
+    /**
      * @var int
      *
      * @ORM\Id
@@ -31,6 +39,11 @@ class Tag implements \JsonSerializable
      * @ORM\Column(type="string", unique=true)
      */
     private $name;
+    
+    public function getPosts()
+    {
+        return $this->posts;
+    }
 
     public function getId()
     {

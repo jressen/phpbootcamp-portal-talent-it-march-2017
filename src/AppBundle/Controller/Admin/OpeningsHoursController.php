@@ -124,5 +124,4 @@ class OpeningsHoursController extends Controller
         return $result;
 
     }
-
 }

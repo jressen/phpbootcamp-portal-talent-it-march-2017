@@ -368,10 +368,7 @@
                 <source>help.browse_app</source>
                 <target><![CDATA[Updates from <strong>city hall</strong>]]></target>
             </trans-unit>
-               <trans-unit id="help.browse_hours">
-                            <source>help.browse_hours</source>
-                            <target><![CDATA[Opening Hours</strong>]]></target>
-                        </trans-unit>
+
             <trans-unit id="help.browse_admin">
                 <source>help.browse_admin</source>
                 <target><![CDATA[Access to the <strong>e-portal</strong>]]></target>

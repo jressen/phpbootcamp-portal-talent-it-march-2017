@@ -2,15 +2,11 @@
 
 namespace AppBundle\Controller\Admin;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\HttpFoundation\Request;
-
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 use AppBundle\Entity\TaskList;
@@ -19,7 +15,8 @@ use AppBundle\Entity\TaskList;
  * @Route("/admin/tasks")
  */
 
-class TaskListController extends Controller{
+class TaskListController extends Controller
+{
 
     /**
      * @Route("/tasklist", name="task_list")
@@ -32,7 +29,6 @@ class TaskListController extends Controller{
 
         return $this->render('admin/tasks/index.html.twig', array(
             'tasks' => $tasks
-
         ));
     }
 
@@ -68,13 +64,12 @@ class TaskListController extends Controller{
                 'notice',
                 'Task Added'
             );
+            
             return $this->redirectToRoute('task_list');
-
         }
 
         return $this->render('admin/tasks/create.html.twig', array(
             'form' => $form->createView()
-
         ));
     }
 
@@ -131,8 +126,8 @@ class TaskListController extends Controller{
                 'notice',
                 'Task Updated'
             );
-            return $this->redirectToRoute('task_list');
 
+            return $this->redirectToRoute('task_list');
         }
 
         return $this->render('/admin/tasks/edit.html.twig', array(
@@ -152,14 +147,12 @@ class TaskListController extends Controller{
 
         $sn->remove($task);
         $sn->flush();
-        //  $tasks = $this->getDoctrine()
-        // ->getRepository('AppBundle:Task')
-        // ->find($id);
 
         $this->addFlash(
             'notice',
             'Task Removed'
         );
+
         return $this->redirectToRoute('task_list');
     }
 }

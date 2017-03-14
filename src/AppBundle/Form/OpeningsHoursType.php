@@ -11,14 +11,18 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Controller\Admin\OpeningsHoursController;
 use AppBundle\Entity\OpeningHours;
 use AppBundle\Form\Type\DateTimePickerType;
 use AppBundle\Form\Type\TagsInputType;
+use AppBundle\Repository\HoursRepository;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -30,7 +34,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class OpeningsHoursType extends AbstractType
 {
-
     /**
      * {@inheritdoc}
      */
@@ -47,25 +50,12 @@ class OpeningsHoursType extends AbstractType
 
         $builder
             ->add('dayOfWeek', ChoiceType::class, array(
-                'choices' => array(
-                    new OpeningHours("Maandag"),
-                    new OpeningHours("Dinsdag"),
-                    new OpeningHours("Woensdag"),
-                    new OpeningHours("Donderdag"),
-                    new OpeningHours("Vrijdag"),
-                    new OpeningHours("Zaterdag"),
-                    new OpeningHours("Zondag"),
-                ),
-                'choice_label' => function($openingHour, $key, $index){
-                    /** @var OpeningHours $openingHour */
-                    return $openingHour->getDayOfWeek();
-                }
+                'choices' => OpeningsHoursController::$weekdays,
             ))
 
             ->add('openingTime')
 
             ->add('closingTime');
-
 
     }
 

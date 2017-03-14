@@ -21,8 +21,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  *
  */
-class OpeningHours{
-
+class OpeningHours
+{
 
     /**
      * @var int
@@ -57,6 +57,20 @@ class OpeningHours{
      * @ORM\Column(type="string")
      */
     private $closingTime;
+
+
+
+    /**
+     * OpeningHours constructor.
+     * @param string $dayOfWeek
+     */
+    public function __construct($dayOfWeek, $openingTime = "", $closingTime = "" )
+    {
+        $this->dayOfWeek = $dayOfWeek;
+        $this->openingTime = $openingTime;
+        $this->closingTime = $closingTime;
+
+    }
 
     /**
      * @return int
@@ -121,5 +135,6 @@ class OpeningHours{
     {
         $this->closingTime = $closingTime;
     }
+
 
    }
